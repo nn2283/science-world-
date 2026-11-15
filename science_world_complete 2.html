@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science World</title>
+<style>
+:root{--ink:#17243a;--muted:#65738a;--paper:#f5f7fb;--card:#fff;--blue:#2857c5;--physics:#2857c5;--biology:#16805a;--chemistry:#b45b22}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+header{background:linear-gradient(125deg,#152b55,#2857c5);color:#fff;padding:42px 20px 34px;text-align:center}
+header .eyebrow{letter-spacing:3px;text-transform:uppercase;font-size:.75rem;opacity:.8}
+header h1{font-size:clamp(2.2rem,7vw,4rem);line-height:1.05;margin:12px 0}
+header p{margin:0 auto;max-width:620px;color:#e4ebff}
+nav{position:sticky;top:0;z-index:5;background:#fff;display:flex;justify-content:center;gap:8px;padding:12px;box-shadow:0 3px 15px #17243a12;flex-wrap:wrap}
+nav a{display:inline-block;text-decoration:none;border:0;border-radius:999px;padding:10px 17px;background:#edf1f8;color:var(--ink);font-weight:700;cursor:pointer}
+nav a.active{background:var(--blue);color:#fff}
+main{max-width:1000px;margin:28px auto;padding:0 16px 50px}
+.subject{display:none;animation:fade .25s ease}
+.subject.active{display:block}
+.subject:target{display:block}
+main:has(.subject:target) .subject.active:not(:target){display:none}
+@keyframes fade{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}
+.subject-heading{padding:24px;border-radius:20px;color:white;margin-bottom:20px}
+.subject-heading h2{font-size:2rem;margin:0 0 5px}
+.subject-heading p{margin:0;opacity:.9}
+.physics .subject-heading{background:linear-gradient(120deg,#1d3e85,#3977e8)}
+.biology .subject-heading{background:linear-gradient(120deg,#075b40,#20a879)}
+.chemistry .subject-heading{background:linear-gradient(120deg,#813c1b,#d77a37)}
+.space .subject-heading{background:linear-gradient(120deg,#171b4d,#6554c8)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
+.card{background:var(--card);border:1px solid #e7ebf2;border-radius:16px;padding:20px;box-shadow:0 5px 18px #17243a08}
+.card h3{margin:0 0 8px;font-size:1.25rem}
+.card p{margin:8px 0;color:#3d4a60}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;border-radius:20px;padding:4px 10px;background:#eef2fb;color:#31518f;margin-bottom:8px}
+.diagram{width:100%;height:auto;display:block;background:#f7f9fd;border-radius:12px;margin:12px 0}
+.note{background:#f0f5ff;border-left:4px solid #3977e8;padding:12px 14px;border-radius:8px;margin-top:12px}
+.ph-scale{display:grid;grid-template-columns:repeat(15,1fr);gap:3px;margin:15px 0 8px}
+.ph-cell{height:34px;border-radius:5px;display:grid;place-items:center;color:#fff;font-size:.78rem;font-weight:bold}
+.ph-labels{display:flex;justify-content:space-between;font-size:.85rem;font-weight:bold}
+ul{padding-left:21px;margin:8px 0}
+li{margin:5px 0}
+.quiz button{display:block;width:100%;text-align:left;margin:8px 0;padding:11px 13px;border:1px solid #dbe2ed;border-radius:10px;background:#fff;cursor:pointer;color:var(--ink)}
+.quiz button:hover{border-color:#3977e8;background:#f5f8ff}
+.feedback{font-weight:bold;min-height:24px;margin-top:8px}
+footer{text-align:center;color:var(--muted);padding:25px 16px;font-size:.9rem}
+@media(max-width:480px){header{padding:32px 16px}nav{gap:5px}nav a{padding:9px 12px;font-size:.9rem}.card{padding:16px}.ph-cell{font-size:.65rem;height:29px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Explore • Discover • Understand</div>
+  <h1>SCIENCE WORLD</h1>
+  <p>Explore physics, biology and chemistry through simple explanations, diagrams and quizzes.</p>
+</header>
+<nav aria-label="Science subjects">
+  <a class="active" href="#physics">⚛ Physics</a>
+  <a href="#biology">🫁 Biology</a>
+  <a href="#chemistry">🧪 Chemistry</a>
+  <a href="#space">🚀 Space Facts</a>
+</nav>
+<main>
+<section id="physics" class="subject physics active">
+  <div class="subject-heading"><h2>⚛ Physics</h2><p>Discover how light behaves.</p></div>
+  <div class="grid">
+    <article class="card">
+      <span class="tag">Light</span><h3>Reflection</h3>
+      <p><strong>Reflection</strong> happens when light bounces off a surface.</p>
+      <svg class="diagram" viewBox="0 0 340 190" role="img" aria-label="A light ray reflects from a flat mirror">
+        <line x1="35" y1="145" x2="305" y2="145" stroke="#53657d" stroke-width="7"/>
+        <path d="M65 35 L170 145" stroke="#e0a323" stroke-width="4" fill="none"/>
+        <path d="M170 145 L275 35" stroke="#2c76d2" stroke-width="4" fill="none"/>
+        <path d="M160 132 L170 145 L181 132" fill="none" stroke="#2c76d2" stroke-width="3"/>
+        <text x="35" y="25" font-size="12" fill="#9a6900">Incoming ray</text>
+        <text x="220" y="25" font-size="12" fill="#245da8">Reflected ray</text>
+        <text x="180" y="166" font-size="12" fill="#53657d">Mirror</text>
+      </svg>
+      <p>Example: You see your reflection in a mirror because light reflects from the mirror and travels to your eyes.</p>
+      <div class="note"><strong>Remember:</strong> The angle of incidence equals the angle of reflection.</div>
+    </article>
+    <article class="card">
+      <span class="tag">Light</span><h3>Refraction</h3>
+      <p><strong>Refraction</strong> is the change in direction of light when it passes from one material into another because its speed changes.</p>
+      <svg class="diagram" viewBox="0 0 340 190" role="img" aria-label="A light ray bends as it enters water from air">
+        <rect x="12" y="92" width="316" height="86" rx="8" fill="#d9efff"/>
+        <line x1="12" y1="92" x2="328" y2="92" stroke="#4a9bc9" stroke-width="2"/>
+        <path d="M65 20 L170 92 L225 165" stroke="#e0a323" stroke-width="4" fill="none"/>
+        <path d="M159 81 L170 92 L183 88" fill="none" stroke="#e0a323" stroke-width="3"/>
+        <text x="20" y="42" font-size="13" fill="#53657d">Air</text>
+        <text x="20" y="120" font-size="13" fill="#245d83">Water</text>
+        <text x="190" y="78" font-size="11" fill="#53657d">Boundary</text>
+      </svg>
+      <p>Example: A straw in a glass of water can look bent because light changes direction as it moves between water and air.</p>
+      <div class="note"><strong>Remember:</strong> Refraction happens when light travels between materials, such as air and water.</div>
+    </article>
+    <article class="card">
+      <span class="tag">Magnetism</span><h3>What is magnetism?</h3>
+      <p><strong>Magnetism</strong> is a force that can attract or repel certain materials and other magnets. A magnet has two poles: a north pole (N) and a south pole (S).</p>
+      <svg class="diagram" viewBox="0 0 340 190" role="img" aria-label="A bar magnet with magnetic field lines looping from north to south">
+        <defs><marker id="magArrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#3977c5" stroke-width="1"/></marker></defs>
+        <path d="M82 91 C82 18 258 18 258 91" fill="none" stroke="#3977c5" stroke-width="2.5" marker-end="url(#magArrow)"/>
+        <path d="M82 99 C82 172 258 172 258 99" fill="none" stroke="#3977c5" stroke-width="2.5" marker-end="url(#magArrow)"/>
+        <path d="M105 80 C115 43 225 43 235 80 M105 110 C115 147 225 147 235 110" fill="none" stroke="#80a7e8" stroke-width="2"/>
+        <rect x="82" y="77" width="88" height="36" rx="5" fill="#df5960"/><rect x="170" y="77" width="88" height="36" rx="5" fill="#3977c5"/>
+        <text x="126" y="101" text-anchor="middle" fill="white" font-size="17" font-weight="bold">N</text><text x="214" y="101" text-anchor="middle" fill="white" font-size="17" font-weight="bold">S</text>
+        <text x="170" y="15" text-anchor="middle" font-size="11" fill="#53657d">Magnetic field lines outside the magnet</text>
+      </svg>
+      <p>The area around a magnet where magnetic force acts is called its <strong>magnetic field</strong>. The field is strongest near the poles.</p>
+      <div class="note"><strong>Remember:</strong> Opposite poles attract (N and S). Like poles repel (N and N, or S and S).</div>
+    </article>
+    <article class="card">
+      <span class="tag">Magnetic materials</span><h3>What do magnets attract?</h3>
+      <p>Magnets strongly attract some materials, including <strong>iron, steel, nickel and cobalt</strong>. They do not attract every metal: aluminium and copper are not normally attracted to an ordinary magnet.</p>
+      <ul><li><strong>Magnetic:</strong> iron nails and many steel objects.</li><li><strong>Not usually magnetic:</strong> wood, plastic, glass, copper and aluminium.</li></ul>
+      <p>A compass contains a small magnetised needle. It turns to line up with Earth's magnetic field, so its north-seeking end points roughly towards geographic north.</p>
+      <svg class="diagram" viewBox="0 0 340 145" role="img" aria-label="Compass with a north-seeking red needle and south end">
+        <circle cx="170" cy="70" r="51" fill="#fff" stroke="#9aa8ba" stroke-width="3"/><circle cx="170" cy="70" r="4" fill="#53657d"/>
+        <path d="M170 24 L160 72 L170 65 L180 72Z" fill="#df5960"/><path d="M170 116 L160 68 L170 75 L180 68Z" fill="#3977c5"/>
+        <text x="170" y="13" text-anchor="middle" font-size="13" font-weight="bold" fill="#b33e48">N</text><text x="170" y="139" text-anchor="middle" font-size="13" font-weight="bold" fill="#2857a8">S</text>
+      </svg>
+    </article>
+    <article class="card">
+      <span class="tag">Electromagnets</span><h3>Making a magnet with electricity</h3>
+      <p>An <strong>electromagnet</strong> is made when an electric current flows through a coil of wire. Putting an iron core inside the coil makes the magnet stronger.</p>
+      <ul><li>Switch the current on: the electromagnet works.</li><li>Switch the current off: most of its magnetism disappears.</li><li>More turns of wire or a larger current can make it stronger (within safe limits).</li></ul>
+      <p>Electromagnets are used in devices such as scrapyard lifting cranes, electric bells and some motors.</p>
+      <div class="note"><strong>Key difference:</strong> A permanent magnet stays magnetic; an electromagnet can be switched on and off.</div>
+    </article>
+    <article class="card quiz" id="magnetQuiz">
+      <span class="tag">Quick quiz</span><h3>Test your magnetism knowledge</h3>
+      <p><strong>1. What happens when two north poles are brought together?</strong></p>
+      <button type="button" data-correct="false">They attract</button>
+      <button type="button" data-correct="true">They repel</button>
+      <button type="button" data-correct="false">Nothing happens</button>
+      <p class="feedback" aria-live="polite"></p>
+    </article>
+  </div>
+</section>
+
+<section id="biology" class="subject biology">
+  <div class="subject-heading"><h2>🫁 Biology</h2><p>Explore the respiratory system and how gas exchange works.</p></div>
+  <div class="grid">
+    <article class="card">
+      <span class="tag">Respiratory system</span><h3>Diagram of the lungs</h3>
+      <svg class="diagram" viewBox="0 0 340 300" role="img" aria-label="Simplified labelled diagram of the lungs, trachea, bronchi and bronchioles">
+        <path d="M160 18 L160 104 M180 18 L180 104" stroke="#7b8798" stroke-width="9" stroke-linecap="round"/>
+        <path d="M170 98 L120 135 M170 98 L220 135" stroke="#7b8798" stroke-width="9" stroke-linecap="round" fill="none"/>
+        <path d="M120 135 C85 100 40 135 38 205 C36 265 88 280 132 252 C151 230 146 170 120 135Z" fill="#f5a6b4" stroke="#c85f78" stroke-width="3"/>
+        <path d="M220 135 C255 100 300 135 302 205 C304 265 252 280 208 252 C189 230 194 170 220 135Z" fill="#f5a6b4" stroke="#c85f78" stroke-width="3"/>
+        <path d="M120 135 L100 175 L80 205 M120 135 L130 180 L115 220 M220 135 L240 175 L260 205 M220 135 L210 180 L225 220" stroke="#a84460" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M80 205 L64 225 M80 205 L92 230 M260 205 L276 225 M260 205 L248 230" stroke="#a84460" stroke-width="2.5" fill="none"/>
+        <g font-size="11" fill="#24334b">
+          <text x="195" y="27">Trachea</text><path d="M190 30 L180 35" stroke="#24334b"/>
+          <text x="235" y="113">Bronchus</text><path d="M232 117 L213 132" stroke="#24334b"/>
+          <text x="245" y="253">Bronchioles</text><path d="M242 247 L225 222" stroke="#24334b"/>
+          <text x="12" y="285">Left lung</text><text x="265" y="285">Right lung</text>
+        </g>
+      </svg>
+      <p>This simplified diagram shows the main airways inside the lungs.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Air pathways</span><h3>Bronchi and bronchioles</h3>
+      <ul>
+        <li><strong>Trachea:</strong> The windpipe that carries air towards the lungs.</li>
+        <li><strong>Bronchi:</strong> The two main branches from the trachea, one leading to each lung.</li>
+        <li><strong>Bronchioles:</strong> Smaller branching air tubes inside the lungs.</li>
+        <li><strong>Alveoli:</strong> Tiny air sacs at the ends of bronchioles.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <span class="tag">Gas exchange</span><h3>How gas exchange works</h3>
+      <p>Gas exchange happens in the alveoli.</p>
+      <ul>
+        <li>Oxygen moves from the air in the alveoli into the blood.</li>
+        <li>Carbon dioxide moves from the blood into the alveoli.</li>
+        <li>Carbon dioxide is then breathed out.</li>
+      </ul>
+      <div class="note"><strong>Remember:</strong> Oxygen goes into the blood; carbon dioxide leaves the blood.</div>
+    </article>
+    <article class="card">
+      <span class="tag">Alveoli</span><h3>Why are alveoli useful?</h3>
+      <svg class="diagram" viewBox="0 0 340 190" role="img" aria-label="Alveolus surrounded by a blood capillary showing oxygen and carbon dioxide movement">
+        <circle cx="145" cy="92" r="48" fill="#f7b6c3" stroke="#c85f78" stroke-width="4"/>
+        <path d="M35 45 C70 10 215 10 270 48 L270 137 C215 174 70 174 35 137Z" fill="none" stroke="#d65c67" stroke-width="13" stroke-linecap="round"/>
+        <path d="M145 36 L145 5 M137 14 L145 5 L153 14" stroke="#2384ce" stroke-width="3" fill="none"/>
+        <path d="M195 92 L245 92 M235 84 L245 92 L235 100" stroke="#2384ce" stroke-width="3" fill="none"/>
+        <path d="M95 112 L48 112 M58 104 L48 112 L58 120" stroke="#e18a2c" stroke-width="3" fill="none"/>
+        <text x="155" y="20" font-size="12" fill="#245d83">O₂ into blood</text>
+        <text x="205" y="78" font-size="11" fill="#245d83">Capillary</text>
+        <text x="12" y="132" font-size="11" fill="#9a5b16">CO₂ to alveolus</text>
+        <text x="125" y="96" font-size="12" fill="#8c4055">Alveolus</text>
+      </svg>
+      <p>Alveoli have thin walls and a large combined surface area. They are surrounded by tiny blood vessels called capillaries, helping gases move between the air and blood.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Movement of particles</span><h3>Diffusion</h3>
+      <p><strong>Diffusion</strong> is the net movement of particles from an area of higher concentration to an area of lower concentration.</p>
+      <ul>
+        <li>Particles move randomly all the time.</li>
+        <li>Overall, more particles move from the crowded area to the less crowded area.</li>
+        <li>Diffusion continues until particles are spread more evenly.</li>
+      </ul>
+      <p><strong>In the lungs:</strong> Oxygen diffuses from the air in the alveoli, where its concentration is higher, into the blood, where its concentration is lower. Carbon dioxide diffuses in the opposite direction.</p>
+      <svg class="diagram" viewBox="0 0 340 170" role="img" aria-label="Particles spreading from a crowded area to a less crowded area by diffusion">
+        <rect x="18" y="25" width="304" height="112" rx="12" fill="#eef4fb" stroke="#cbd6e5"/>
+        <line x1="170" y1="25" x2="170" y2="137" stroke="#9aa9bc" stroke-dasharray="5 5"/>
+        <g fill="#3678c8"><circle cx="42" cy="48" r="5"/><circle cx="67" cy="72" r="5"/><circle cx="92" cy="43" r="5"/><circle cx="119" cy="93" r="5"/><circle cx="145" cy="57" r="5"/><circle cx="50" cy="112" r="5"/><circle cx="100" cy="119" r="5"/><circle cx="135" cy="105" r="5"/><circle cx="76" cy="96" r="5"/></g>
+        <g fill="#3678c8"><circle cx="208" cy="58" r="5"/><circle cx="258" cy="103" r="5"/><circle cx="292" cy="70" r="5"/></g>
+        <path d="M145 81 L205 81 M195 72 L205 81 L195 90" stroke="#e18a2c" stroke-width="3" fill="none"/>
+        <text x="30" y="155" font-size="11" fill="#53657d">High concentration</text><text x="214" y="155" font-size="11" fill="#53657d">Low concentration</text>
+      </svg>
+      <div class="note"><strong>Remember:</strong> Diffusion moves particles down a concentration gradient — from high concentration to low concentration.</div>
+    </article>
+
+    <article class="card">
+      <span class="tag">Breathing muscles</span><h3>The diaphragm</h3>
+      <p>The diaphragm is a dome-shaped muscle underneath the lungs. It helps air move into and out of the lungs.</p>
+      <ul>
+        <li><strong>Breathing in:</strong> The diaphragm contracts, flattens and moves down. The chest cavity gets bigger, so air moves into the lungs.</li>
+        <li><strong>Breathing out:</strong> The diaphragm relaxes and moves up into its dome shape. The chest cavity gets smaller, helping push air out.</li>
+      </ul>
+      <div class="note"><strong>Remember:</strong> Diaphragm down = breathe in. Diaphragm up = breathe out (during normal, relaxed breathing).</div>
+    </article>
+    <article class="card">
+      <span class="tag">Breathing muscles</span><h3>Intercostal muscles</h3>
+      <p>Intercostal muscles are found between the ribs. They help move the rib cage during breathing.</p>
+      <ul>
+        <li><strong>Breathing in:</strong> The external intercostal muscles contract, lifting the ribs up and out.</li>
+        <li><strong>Breathing out normally:</strong> These muscles relax, and the ribs move down and in.</li>
+      </ul>
+      <p>The diaphragm and intercostal muscles work together to change the size of the chest cavity.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Blood</span><h3>What is in our blood?</h3>
+      <svg class="diagram" viewBox="0 0 340 170" role="img" aria-label="Illustration of red blood cells, a white blood cell, platelets and plasma">
+        <rect x="15" y="15" width="310" height="140" rx="12" fill="#fff0f0"/>
+        <g fill="#d94b5b" stroke="#a92f42" stroke-width="2"><ellipse cx="65" cy="58" rx="25" ry="15"/><ellipse cx="112" cy="105" rx="25" ry="15"/><ellipse cx="157" cy="49" rx="25" ry="15"/></g>
+        <g fill="#f6a0a9"><ellipse cx="65" cy="58" rx="11" ry="6"/><ellipse cx="112" cy="105" rx="11" ry="6"/><ellipse cx="157" cy="49" rx="11" ry="6"/></g>
+        <circle cx="238" cy="74" r="23" fill="#fff" stroke="#8b78bd" stroke-width="3"/><path d="M228 67 Q238 48 248 68 Q256 84 237 89 Q220 85 228 67" fill="#8b78bd"/>
+        <g fill="#e7ad35"><circle cx="190" cy="119" r="5"/><circle cx="214" cy="126" r="4"/><circle cx="271" cy="118" r="5"/><circle cx="291" cy="48" r="4"/></g>
+        <text x="26" y="30" font-size="11" fill="#9b3444">Red blood cells</text><text x="208" y="30" font-size="11" fill="#65528f">White blood cell</text><text x="250" y="145" font-size="11" fill="#9b741e">Platelets</text>
+      </svg>
+      <p>Blood is made of four main components. Each one has a different job:</p>
+      <ul>
+        <li><strong>Red blood cells:</strong> These contain haemoglobin, a red protein that carries oxygen from the lungs to the body. They have a flattened, disc-like shape to help them carry oxygen.</li>
+        <li><strong>White blood cells:</strong> These are part of the immune system. They help the body fight germs, such as bacteria and viruses.</li>
+        <li><strong>Platelets:</strong> These are tiny cell fragments that help blood clot and stop bleeding when a blood vessel is damaged.</li>
+        <li><strong>Plasma:</strong> This is the pale-yellow liquid part of blood. It is mostly water and carries the blood cells, nutrients, hormones, salts, carbon dioxide and waste products around the body.</li>
+      </ul>
+      <h3>What is blood made up of?</h3>
+      <p>In a typical blood sample, plasma makes up about <strong>55%</strong> of the volume. Red blood cells make up most of the other <strong>45%</strong>; white blood cells and platelets make up a very small amount.</p>
+      <svg class="diagram" viewBox="0 0 340 116" role="img" aria-label="A simple chart showing blood is about 55 percent plasma and 45 percent red blood cells, with a tiny amount of white blood cells and platelets">
+        <text x="18" y="20" font-size="12" fill="#53657d">Approximate blood composition</text>
+        <rect x="18" y="34" width="304" height="30" rx="6" fill="#e4e9f1"/>
+        <path d="M24 34 H185 V64 H24 Q18 64 18 58 V40 Q18 34 24 34Z" fill="#e7c96b"/>
+        <path d="M185 34 H316 Q322 34 322 40 V58 Q322 64 316 64 H185Z" fill="#d94b5b"/>
+        <text x="101" y="54" text-anchor="middle" font-size="12" font-weight="bold" fill="#594718">55% plasma</text>
+        <text x="253" y="54" text-anchor="middle" font-size="12" font-weight="bold" fill="white">About 45%</text>
+        <text x="18" y="87" font-size="11" fill="#53657d">The 45% is mostly red blood cells.</text>
+        <text x="18" y="103" font-size="11" fill="#53657d">White blood cells and platelets are only a tiny fraction.</text>
+      </svg>
+      <div class="note"><strong>Remember:</strong> Plasma is the liquid. Red blood cells carry oxygen. White blood cells fight infection. Platelets help blood clot.</div>
+    </article>
+    <article class="card">
+      <span class="tag">Gas transport</span><h3>How does blood carry gases?</h3>
+      <ul>
+        <li>Oxygen moves from the alveoli into the blood and attaches to haemoglobin in red blood cells.</li>
+        <li>The blood carries oxygen to body cells, where it is used for respiration.</li>
+        <li>Carbon dioxide made by body cells travels in the blood back to the lungs. Most is carried as bicarbonate dissolved in the plasma.</li>
+        <li>At the lungs, carbon dioxide moves from the blood into the alveoli and is breathed out.</li>
+      </ul>
+      <div class="note"><strong>Remember:</strong> Red blood cells carry most oxygen. Plasma carries many dissolved substances, including much of the carbon dioxide.</div>
+    </article>
+  </div>
+</section>
+
+<section id="chemistry" class="subject chemistry">
+  <div class="subject-heading"><h2>🧪 Chemistry</h2><p>Learn about acids, alkalis, the pH scale and neutralisation.</p></div>
+  <div class="grid">
+    <article class="card">
+      <span class="tag">pH scale</span><h3>What is the pH scale?</h3>
+      <p>The pH scale measures how acidic or alkaline a solution is. It commonly runs from 0 to 14.</p>
+      <div class="ph-scale" aria-label="pH scale from 0 to 14">
+        <div class="ph-cell" style="background:#c52c39">0</div><div class="ph-cell" style="background:#d43d37">1</div><div class="ph-cell" style="background:#df5636">2</div><div class="ph-cell" style="background:#e87535">3</div><div class="ph-cell" style="background:#e99436">4</div><div class="ph-cell" style="background:#d9ad3e">5</div><div class="ph-cell" style="background:#b9b64a">6</div><div class="ph-cell" style="background:#39965b">7</div><div class="ph-cell" style="background:#278d78">8</div><div class="ph-cell" style="background:#267fa0">9</div><div class="ph-cell" style="background:#286bb5">10</div><div class="ph-cell" style="background:#3457b5">11</div><div class="ph-cell" style="background:#5145a9">12</div><div class="ph-cell" style="background:#70399c">13</div><div class="ph-cell" style="background:#812c82">14</div>
+      </div>
+      <div class="ph-labels"><span>Acidic</span><span>Neutral</span><span>Alkaline</span></div>
+      <ul>
+        <li><strong>pH below 7:</strong> Acidic (0–6).</li>
+        <li><strong>pH 7:</strong> Neutral.</li>
+        <li><strong>pH above 7:</strong> Alkaline (8–14).</li>
+      </ul>
+      <p><strong>Note:</strong> The lower the pH, the more acidic a solution is. The higher the pH, the more alkaline it is.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Acids</span><h3>What are acids?</h3>
+      <p>Acids are substances that produce hydrogen ions in water. Many acids have a pH below 7.</p>
+      <p>Examples include lemon juice and vinegar.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Alkalis</span><h3>What are alkalis?</h3>
+      <p>Alkalis are bases that dissolve in water and produce hydroxide ions. They have a pH above 7.</p>
+      <p>Examples include baking soda solution and soap solution.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Chemical reaction</span><h3>Neutralisation</h3>
+      <p><strong>Neutralisation</strong> happens when an acid reacts with an alkali (a soluble base).</p>
+      <ol>
+        <li>An acid and an alkali are mixed.</li>
+        <li>Hydrogen ions from the acid react with hydroxide ions from the alkali to make water.</li>
+        <li>The remaining ions form a salt.</li>
+        <li>If the correct amounts are mixed, the solution becomes neutral, around pH 7.</li>
+      </ol>
+      <svg class="diagram" viewBox="0 0 340 150" role="img" aria-label="Neutralisation: acid and alkali react to form salt and water">
+        <rect x="12" y="35" width="82" height="58" rx="10" fill="#f8d9dc" stroke="#c94c58"/><text x="53" y="69" text-anchor="middle" font-size="15" font-weight="bold" fill="#8c2633">Acid</text>
+        <text x="107" y="70" font-size="20" fill="#53657d">+</text>
+        <rect x="132" y="35" width="82" height="58" rx="10" fill="#d9e8fb" stroke="#3977c5"/><text x="173" y="69" text-anchor="middle" font-size="14" font-weight="bold" fill="#24518c">Alkali</text>
+        <path d="M222 64 L252 64 M244 56 L252 64 L244 72" stroke="#53657d" stroke-width="3" fill="none"/>
+        <rect x="260" y="20" width="68" height="42" rx="8" fill="#e7e2f5" stroke="#7d68ad"/><text x="294" y="46" text-anchor="middle" font-size="13" fill="#55427f">Salt</text>
+        <rect x="260" y="76" width="68" height="42" rx="8" fill="#d9f0e3" stroke="#39966a"/><text x="294" y="102" text-anchor="middle" font-size="13" fill="#216442">Water</text>
+        <text x="170" y="139" text-anchor="middle" font-size="11" fill="#53657d">Hydrogen ions + hydroxide ions → water</text>
+      </svg>
+      <div class="note"><strong>Acid + Alkali → Salt + Water</strong></div>
+      <p><strong>What colour does the acid become?</strong> There is no single colour for every acid. The colour depends on the indicator used. With universal indicator, an acidic solution is red, orange or yellow. As it is neutralised towards pH 7, it changes towards green.</p>
+      <p>With litmus, acid turns blue litmus red; a neutral solution does not turn either litmus paper red or blue.</p>
+    </article>
+  </div>
+</section>
+
+<section id="space" class="subject space">
+  <div class="subject-heading"><h2>🚀 Space Facts</h2><p>A few amazing facts about our Solar System and the universe.</p></div>
+  <div class="grid">
+    <article class="card"><span class="tag">The Sun</span><h3>Our nearest star</h3><p>The Sun is a star at the centre of our Solar System. It is so far away that its light takes about <strong>8 minutes and 20 seconds</strong> to reach Earth.</p></article>
+    <article class="card"><span class="tag">The planets</span><h3>Jupiter is the biggest</h3><p>Jupiter is the largest planet in our Solar System. More than 1,300 Earths could fit inside it by volume.</p></article>
+    <article class="card"><span class="tag">Saturn</span><h3>A planet with rings</h3><p>Saturn's rings are made mostly of pieces of ice and rock. They stretch out around the planet and are very wide.</p></article>
+    <article class="card"><span class="tag">Earth</span><h3>Our home planet</h3><p>Earth takes about <strong>365.25 days</strong> to travel once around the Sun. That extra quarter-day is why we have a leap year every four years (with a few calendar exceptions).</p></article>
+    <article class="card"><span class="tag">The Moon</span><h3>One familiar face</h3><p>The Moon takes about the same amount of time to spin once as it takes to orbit Earth. That is why we usually see the same side of the Moon.</p></article>
+    <article class="card"><span class="tag">The universe</span><h3>It's incredibly old</h3><p>Scientists estimate that the universe is about <strong>13.8 billion years old</strong>. It contains billions of galaxies.</p></article>
+  </div>
+  <div class="note"><strong>Space question:</strong> Which planet is the largest in our Solar System? Answer: Jupiter.</div>
+</section>
+</main>
+<footer>SCIENCE WORLD · Keep asking questions and stay curious.</footer>
+<script>
+document.querySelectorAll('#magnetQuiz button').forEach(button => {
+  button.addEventListener('click', () => {
+    const feedback = document.querySelector('#magnetQuiz .feedback');
+    const correct = button.dataset.correct === 'true';
+    feedback.textContent = correct ? 'Correct! Like poles repel.' : 'Not quite. Two north poles are like poles, so they repel.';
+    feedback.style.color = correct ? '#16805a' : '#b45b22';
+  });
+});
+</script>
+</body>
+</html>
